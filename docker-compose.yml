@@ -1,0 +1,46 @@
+version: '3'
+
+volumes:
+  mysql-data:
+  bundle:
+  redis-data:
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+    command: ['redis-server', '--appendonly', 'yes']
+    ports:
+      - '6379'
+    volumes:
+      - redis-data:/etc/redis/database
+
+  app:
+    image: qcx_api:development
+    build:
+      context: .
+    command: rails server -p 3000 -b '0.0.0.0'
+    entrypoint: ./entrypoint
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    ports:
+      - '3000:3000'
+    environment:
+      REDIS_URL: redis
+    stdin_open: true
+    tty: true
+    links:
+      - db:mysql
+      - redis
+    depends_on:
+      - db
+      - redis
