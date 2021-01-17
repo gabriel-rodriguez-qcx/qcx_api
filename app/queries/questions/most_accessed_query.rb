@@ -1,9 +1,7 @@
 module Questions
   class MostAccessedQuery
     def self.call(args)
-      new(args)
-        .query
-        .tap { |responses, meta| yield responses, meta if block_given? }
+      new(args).query
     end
 
     def initialize(args)
