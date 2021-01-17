@@ -5,6 +5,7 @@ class AddQuestions < ActiveRecord::Migration[6.1]
       t.string :text, limit: 255
       t.string :answer, limit: 1
       t.string :discipline, limit: 255
+      t.integer :daily_access
 
       t.timestamps null: false
     end
