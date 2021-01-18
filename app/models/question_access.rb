@@ -6,7 +6,7 @@ class QuestionAccess < ApplicationRecord
 
   scope :by_year, ->(year) { where(date: Date.new(year.to_i)...Date.new(year.to_i + 1)) }
   scope :by_month, lambda { |year, month|
-    where(date: Date.new(year.to_i, month.to_i)...Date.new(year.to_i, month.to_i).end_of_month)
+    where(date: Date.new(year.to_i, month.to_i)..Date.new(year.to_i, month.to_i).end_of_month)
   }
 
   scope :by_week, lambda { |year, week_number|
