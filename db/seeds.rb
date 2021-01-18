@@ -19,4 +19,7 @@ URI('https://raw.githubusercontent.com/qcx/desafio-backend/master/question_acces
   .in_groups_of(1000, false) { |question_accesses_attr| QuestionAccess.insert_all(question_accesses_attr) }
 Rails.logger.info 'Done.'
 
+Rails.logger.info 'Indexing QuestionAccesses'
+QuestionAccess.reindex
+Rails.logger.info 'Done.'
 # rubocop:enable Rails/SkipsModelValidations
