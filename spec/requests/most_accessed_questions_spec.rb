@@ -21,7 +21,11 @@ RSpec.describe 'Most Accessed Questions', type: :request do
       get v1_question_accesses_path, params: params
     end
 
-    before(:each) { get v1_question_accesses_path, params: params }
+    before(:each) do
+      QuestionAccess.reindex
+
+      get v1_question_accesses_path, params: params
+    end
 
     it 'returns status 200 ok' do
       expect(response.status).to eq 200

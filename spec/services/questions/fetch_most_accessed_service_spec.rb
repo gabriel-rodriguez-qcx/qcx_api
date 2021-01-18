@@ -10,6 +10,8 @@ RSpec.describe Questions::FetchMostAccessedService, type: :service do
     let!(:question) { create :question }
     let!(:question_accesses) { create_list :question_access, 2, question: question, times_accessed: 1 }
 
+    before(:each) { QuestionAccess.reindex }
+
     it 'returns questions' do
       expect(subject).to be_an Array
       expect(subject.first).to all(be_an(Question))
@@ -22,7 +24,7 @@ RSpec.describe Questions::FetchMostAccessedService, type: :service do
     end
 
     it 'calls Disciplines::MostAccessedQuery' do
-      expect(Questions::MostAccessedQuery).to receive(:call).with(args).and_call_original
+      expect(Questions::Elastic::MostAccessedQuery).to receive(:call).with(args).and_call_original
 
       subject
     end

@@ -16,8 +16,10 @@ module Questions
       end
     end
 
+    private
+
     def most_accessed
-      @most_accessed ||= Questions::MostAccessedQuery.call(@args)
+      @most_accessed ||= Questions::Elastic::MostAccessedQuery.call(@args)
     end
 
     def cache_key(prefix, args)
