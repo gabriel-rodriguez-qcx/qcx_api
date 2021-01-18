@@ -4,6 +4,7 @@ volumes:
   mysql-data:
   bundle:
   redis-data:
+  es-data:
 
 services:
   db:
@@ -23,6 +24,15 @@ services:
     volumes:
       - redis-data:/etc/redis/database
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    environment:
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    ports: ['9200:9200']
+
   app:
     image: qcx_api:development
     build:
@@ -36,11 +46,14 @@ services:
       - '3000:3000'
     environment:
       REDIS_URL: 'redis://redis:6379/0'
+      ELASTICSEARCH_URL: 'elasticsearch:9200'
     stdin_open: true
     tty: true
     links:
       - db:mysql
       - redis
+      - elasticsearch
     depends_on:
       - db
       - redis
+      - elasticsearch
