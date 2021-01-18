@@ -39,10 +39,10 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'fuubar'
+  gem 'json-schema'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'json-schema'
 end
 
 group :development do

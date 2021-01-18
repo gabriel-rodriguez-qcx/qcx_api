@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/question"
+      }
+    }
+  },
+  "definitions": {
+    "question": {
+      "type": "object",
+      "required": [ "id", "type", "attributes"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "attributes": {
+          "type": "object",
+          "required": [ "statement", "text", "answer", "daily_access", "discipline", "times_accessed"],
+          "properties": {
+            "statement": { "type": "string" },
+            "text": { "type": "string" },
+            "answer": { "type": "string" },
+            "daily_access": { "type": "integer" },
+            "discipline": { "type": "string" },
+            "times_accessed": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}
