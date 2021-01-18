@@ -1,7 +1,7 @@
 module Disciplines
   class MostAccessedQuery
-    def self.call
-      Question.group(:discipline).order('sum_daily_access desc').limit(10).sum(:daily_access)
+    def self.call(limit = 10)
+      Question.group(:discipline).order('sum_daily_access desc').limit(limit).sum(:daily_access) || {}
     end
   end
 end
