@@ -1,6 +1,6 @@
 module V1
   class QuestionAccessesController < ApplicationController
-    before_action :validate_date
+    before_action :validate_date, :validate_presence
 
     def index
       questions, accesses = Questions::FetchMostAccessedService.call(service_params)
@@ -30,6 +30,12 @@ module V1
       service_params.compact.values.each { |v| Integer(v) }
     rescue ArgumentError
       render json: { error: I18n.t('question_accesses_controller.errors.wrong_date_value') }, status: 422
+    end
+
+    def validate_presence
+      return if service_params.compact.present?
+
+      render json: { error: I18n.t('question_accesses_controller.errors.presence') }, status: 422
     end
   end
 end

@@ -33,3 +33,4 @@ en:
   question_accesses_controller:
     errors:
       wrong_date_value: Year, Month, Week must be an integer
+      presence: At least Year must be present
