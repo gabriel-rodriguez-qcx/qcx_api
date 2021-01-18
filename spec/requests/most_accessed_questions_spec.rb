@@ -81,5 +81,14 @@ RSpec.describe 'Most Accessed Questions', type: :request do
       it { expect(response.status).to eq 422 }
       it { expect(parsed_body[:error]).to eq I18n.t('question_accesses_controller.errors.presence') }
     end
+
+    context 'when date is invalid' do
+      %i[month week].each do |param|
+        let(:params) { { param => '100' } }
+
+        it { expect(response.status).to eq 422 }
+        it { expect(parsed_body[:error]).to eq 'Invalid date' }
+      end
+    end
   end
 end
