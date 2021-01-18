@@ -85,7 +85,7 @@ Must be noted that to filter by month or week, **year must also be informed**. Q
 Provided on `/v1/disciplines` this endpoints does not accepts any parameter, disciplines are sorted in descending order by times_accessed  
 Note: Sorting is actually done on the sum of `daily_access` on `Question` model, however `times_accessed` was used to represent that sum for each discipline.
 
-##Request example
+## Request example  
 `curl --location --request GET 'http://localhost:3000/v1/disciplines'`
 
 ## Response Example
