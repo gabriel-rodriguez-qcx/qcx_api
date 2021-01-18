@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/discipline"
+      }
+    }
+  },
+  "definitions": {
+    "discipline": {
+      "type": "object",
+      "required": [ "id", "type", "attributes"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "attributes": {
+          "type": "object",
+          "required": [ "name", "times_accessed"],
+          "properties": {
+            "name": { "type": "string" },
+            "times_accessed": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}
