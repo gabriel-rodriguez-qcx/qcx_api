@@ -3,7 +3,7 @@
 # Requirements
  - Docker
  - Docker Compose
- - Nothing running on port 3000
+ - Nothing running on ports 3000 and 9200
 
 # How to Run
  - `docker-compose up`
@@ -29,6 +29,8 @@ The command above will also generate a coverage report that can be found inside 
 Provided on `/v1/question_accesses`, this endpoint accepts **year**, **month** and **week** as query parameters.   
 Must be noted that to filter by month or week, **year must also be informed**. Questions are sorted in descending order by times_accessed
 
+**Bonus Feature**: You may also use [Sparse Fieldsets](https://jsonapi.org/format/#fetching-sparse-fieldsets) from json-api to filter attributes
+
 ## Requests Examples
 ### Most accessed questions by week
 `curl --location --request GET 'http://localhost:3000/v1/question_accesses?year=2020&week=2'`
@@ -39,6 +41,8 @@ Must be noted that to filter by month or week, **year must also be informed**. Q
 ### Most accessed questions by year
 `curl --location --request GET 'http://localhost:3000/v1/question_accesses?year=2020'`
 
+### Most accessed questions by year with sparsed fields
+`curl --location --request GET 'http://localhost:3000/v1/question_accesses?year=2020&fields[question][]=text&fields[question][]=times_accessed'`
 ## Response Example
 ```
 {
