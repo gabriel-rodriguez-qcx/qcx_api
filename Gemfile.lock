@@ -65,6 +65,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
@@ -99,6 +101,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     jsonapi-renderer (0.2.2)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -124,6 +128,7 @@ GEM
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
+    public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -234,6 +239,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fuubar
+  json-schema
   listen (~> 3.3)
   mysql2 (~> 0.5)
   puma (~> 5.0)
