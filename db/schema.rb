@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_014212) do
     t.string "text"
     t.string "answer", limit: 1
     t.string "discipline"
+    t.integer "daily_access"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -33,6 +33,17 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'database_cleaner-redis'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'fuubar'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+end
+
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop', require: false
