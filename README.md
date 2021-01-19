@@ -23,6 +23,7 @@ The command above will also generate a coverage report that can be found inside 
 - To speed up that first request a worker with sidekiq gem to warmup the cache could have been implement, but I was short on time :p
 
 # API Resources
+There is an postman collection on root folder, `qcx_api.postman_collection.json` for your convenience. 
 
 ## Most accessed questions
 

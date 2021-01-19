@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "e91298ee-4a42-4dd5-8afe-a47cf25beb21",
+		"name": "qcx_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/questions_accesses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/question_accesses?year=2020&week=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"question_accesses"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020"
+						},
+						{
+							"key": "fields[question][]",
+							"value": "text",
+							"disabled": true
+						},
+						{
+							"key": "fields[question][]",
+							"value": "times_accessed",
+							"disabled": true
+						},
+						{
+							"key": "month",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "week",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/disciplines",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/question_accesses?year=2020&week=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"question_accesses"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020"
+						},
+						{
+							"key": "fields[question][]",
+							"value": "text",
+							"disabled": true
+						},
+						{
+							"key": "fields[question][]",
+							"value": "times_accessed",
+							"disabled": true
+						},
+						{
+							"key": "month",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "week",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
