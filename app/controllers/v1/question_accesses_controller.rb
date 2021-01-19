@@ -27,15 +27,16 @@ module V1
     end
 
     def validate_date
-      service_params.compact.values.each { |v| Integer(v) }
+      service_params.compact.each_value { |v| Integer(v) }
     rescue ArgumentError
-      render json: { error: I18n.t('question_accesses_controller.errors.wrong_date_value') }, status: 422
+      render json: { error: I18n.t('question_accesses_controller.errors.wrong_date_value') },
+             status: :unprocessable_entity
     end
 
     def validate_presence
       return if service_params.compact.present?
 
-      render json: { error: I18n.t('question_accesses_controller.errors.presence') }, status: 422
+      render json: { error: I18n.t('question_accesses_controller.errors.presence') }, status: :unprocessable_entity
     end
   end
 end

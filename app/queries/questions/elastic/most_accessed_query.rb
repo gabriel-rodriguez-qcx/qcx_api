@@ -12,7 +12,8 @@ module Questions
       end
 
       def perform
-        QuestionAccess.search(body: query).aggs.deep_symbolize_keys
+        QuestionAccess
+          .search(body: query).aggs.deep_symbolize_keys
           .then { |aggs| aggs.dig(:by_question_id, :buckets) }
           .then do |bucket|
           bucket.each_with_object({}) do |h, acc|

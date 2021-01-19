@@ -76,7 +76,7 @@ RSpec.describe 'Most Accessed Questions', type: :request do
     end
 
     context 'when year is not sent' do
-      let(:params) { { } }
+      let(:params) { {} }
 
       it { expect(response.status).to eq 422 }
       it { expect(parsed_body[:error]).to eq I18n.t('question_accesses_controller.errors.presence') }
